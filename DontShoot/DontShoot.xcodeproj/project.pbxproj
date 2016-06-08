@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B3FB7E141D0846AE000D3846 /* DontShoot.h in Headers */ = {isa = PBXBuildFile; fileRef = B3FB7E131D0846AE000D3846 /* DontShoot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3FB7E5E1D085589000D3846 /* BarrageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB7E5D1D085589000D3846 /* BarrageView.swift */; };
+		B3FB7E601D086AF9000D3846 /* BarrageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB7E5F1D086AF9000D3846 /* BarrageController.swift */; };
+		B3FB7E621D086B25000D3846 /* BarrageScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB7E611D086B25000D3846 /* BarrageScene.swift */; };
+		B3FB7E641D086B40000D3846 /* BarrageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB7E631D086B40000D3846 /* BarrageNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B3FB7E101D0846AE000D3846 /* DontShoot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DontShoot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FB7E131D0846AE000D3846 /* DontShoot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DontShoot.h; sourceTree = "<group>"; };
 		B3FB7E151D0846AE000D3846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3FB7E5D1D085589000D3846 /* BarrageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarrageView.swift; sourceTree = "<group>"; };
+		B3FB7E5F1D086AF9000D3846 /* BarrageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarrageController.swift; sourceTree = "<group>"; };
+		B3FB7E611D086B25000D3846 /* BarrageScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarrageScene.swift; sourceTree = "<group>"; };
+		B3FB7E631D086B40000D3846 /* BarrageNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarrageNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,10 @@
 			children = (
 				B3FB7E131D0846AE000D3846 /* DontShoot.h */,
 				B3FB7E151D0846AE000D3846 /* Info.plist */,
+				B3FB7E5F1D086AF9000D3846 /* BarrageController.swift */,
+				B3FB7E5D1D085589000D3846 /* BarrageView.swift */,
+				B3FB7E611D086B25000D3846 /* BarrageScene.swift */,
+				B3FB7E631D086B40000D3846 /* BarrageNode.swift */,
 			);
 			path = DontShoot;
 			sourceTree = "<group>";
@@ -130,6 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FB7E601D086AF9000D3846 /* BarrageController.swift in Sources */,
+				B3FB7E621D086B25000D3846 /* BarrageScene.swift in Sources */,
+				B3FB7E641D086B40000D3846 /* BarrageNode.swift in Sources */,
+				B3FB7E5E1D085589000D3846 /* BarrageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +246,7 @@
 		B3FB7E191D0846AE000D3846 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -240,12 +257,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.luosheng.DontShoot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B3FB7E1A1D0846AE000D3846 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
