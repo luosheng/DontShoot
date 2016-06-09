@@ -72,9 +72,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B3FB7E0F1D0846AE000D3846 /* DontShoot */ = {
+		B3FB7E0F1D0846AE000D3846 /* DontShoot-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3FB7E181D0846AE000D3846 /* Build configuration list for PBXNativeTarget "DontShoot" */;
+			buildConfigurationList = B3FB7E181D0846AE000D3846 /* Build configuration list for PBXNativeTarget "DontShoot-iOS" */;
 			buildPhases = (
 				B3FB7E0B1D0846AE000D3846 /* Sources */,
 				B3FB7E0C1D0846AE000D3846 /* Frameworks */,
@@ -85,7 +85,7 @@
 			);
 			dependencies = (
 			);
-			name = DontShoot;
+			name = "DontShoot-iOS";
 			productName = DontShoot;
 			productReference = B3FB7E101D0846AE000D3846 /* DontShoot.framework */;
 			productType = "com.apple.product-type.framework";
@@ -116,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3FB7E0F1D0846AE000D3846 /* DontShoot */,
+				B3FB7E0F1D0846AE000D3846 /* DontShoot-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -248,7 +248,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = net.luosheng.DontShoot;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DontShoot;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -266,7 +266,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.luosheng.DontShoot;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DontShoot;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -283,7 +283,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3FB7E181D0846AE000D3846 /* Build configuration list for PBXNativeTarget "DontShoot" */ = {
+		B3FB7E181D0846AE000D3846 /* Build configuration list for PBXNativeTarget "DontShoot-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3FB7E191D0846AE000D3846 /* Debug */,
