@@ -25,6 +25,8 @@ public class BarrageController {
     
     public var fontSize: CGFloat = 20
     
+    public var bulletMargin: CGFloat = 50
+    
     private var maximumLines: Int = 0
     
     private var lineMapping: [Int: [BarrageNode]] = [:]
@@ -60,7 +62,7 @@ public class BarrageController {
         
         let frame = node.calculateAccumulatedFrame()
         
-        let line = 1
+        let line = findNextLine()
         let y = CGRectGetHeight(view.frame) - (CGRectGetHeight(frame) + lineSpacing) * CGFloat(line)
         
         node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: y)
@@ -81,6 +83,34 @@ public class BarrageController {
             }
             node.removeFromParent()
             self.removeNodeFromLine(node)
+        }
+    }
+    
+    private func findNextLine() -> Int {
+        // Find pairs of each line and its max X for nodes inside that line
+        let linesWithMaxX = lineMapping.map { (line, nodes) -> (Int, CGFloat) in
+            let maxY = nodes.reduce(CGFloat.min) { max($0, CGRectGetMaxX($1.frame)) }
+            return (line, maxY)
+        }
+        
+        let sortedByLine = linesWithMaxX.sort { $0.0 < $1.0 }
+        
+        let linesWithinBoundary = sortedByLine.filter { $0.1 + bulletMargin <= CGRectGetWidth(view.frame) }
+        if linesWithinBoundary.count > 0 {
+            // Exisiting lines have enough space to fit in another bullet
+            return linesWithinBoundary.first!.0
+        } else if let lastLine = sortedByLine.last?.0 {
+            if lastLine < maximumLines {
+                // Try to put the bullet to the next line of the current last one
+                return lastLine + 1
+            } else {
+                // We have to overlap a line, but we can do it with the least cost
+                let sortedByX = linesWithMaxX.sort { $0.1 < $1.1 }
+                return sortedByX.first?.0 ?? 1
+            }
+        } else {
+            // Nothing on the screen? Put it on the first line
+            return 1
         }
     }
     
