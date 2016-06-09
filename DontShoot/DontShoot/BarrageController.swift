@@ -11,25 +11,25 @@ import SpriteKit
 
 public class BarrageController {
     
-    let spriteView: SKView
+    let view: SKView
     var scene: BarrageScene!
     
     public init() {
-        spriteView = SKView()
+        view = SKView()
         
-        spriteView.allowsTransparency = true
-        spriteView.showsFPS = true
-        spriteView.showsNodeCount = true
-        spriteView.showsDrawCount = true
-        spriteView.backgroundColor = SKColor.clearColor()
+        view.allowsTransparency = true
+        view.showsFPS = true
+        view.showsNodeCount = true
+        view.showsDrawCount = true
+        view.backgroundColor = SKColor.clearColor()
     }
     
-    public func renderInView(view: UIView) {
-        spriteView.frame = view.bounds
-        view.addSubview(spriteView)
+    public func renderInView(hostView: UIView) {
+        view.frame = hostView.bounds
+        hostView.addSubview(view)
         
-        scene = BarrageScene(size: spriteView.bounds.size)
-        spriteView.presentScene(scene)
+        scene = BarrageScene(size: view.bounds.size)
+        view.presentScene(scene)
         scene.backgroundColor = SKColor.clearColor()
         scene.scaleMode = .AspectFit
     }
@@ -40,14 +40,14 @@ public class BarrageController {
         node.fontSize = 20
         
         let frame = node.calculateAccumulatedFrame()
-        node.position = CGPoint(x: CGRectGetMaxX(spriteView.frame) + CGRectGetWidth(frame) / 2 , y: 0)
+        node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: 0)
         scene.addChild(node)
         
         animate(node)
     }
     
     private func animate(node: BarrageNode) {
-        let moveLeft = SKAction.moveByX(-(CGRectGetWidth(spriteView.frame) + CGRectGetWidth(node.frame)), y: 0, duration: 2)
+        let moveLeft = SKAction.moveByX(-(CGRectGetWidth(view.frame) + CGRectGetWidth(node.frame)), y: 0, duration: 3)
         node.runAction(moveLeft) { [weak node] in
             node?.removeFromParent()
         }
