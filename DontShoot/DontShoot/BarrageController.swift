@@ -19,6 +19,12 @@ public class BarrageController {
     let view: SKView
     var scene: BarrageScene!
     
+    public var lineSpacing: CGFloat = 5
+    
+    public var fontSize: CGFloat = 20
+    
+    private var maximumLines: Int = 0
+    
     public init() {
         view = SKView()
         
@@ -39,12 +45,14 @@ public class BarrageController {
         view.presentScene(scene)
         scene.backgroundColor = SKColor.clearColor()
         scene.scaleMode = .AspectFit
+        
+        maximumLines = Int(CGRectGetHeight(view.frame) / (fontSize + lineSpacing))
     }
     
     public func fire(text: String) {
         let node = BarrageNode(text: text)
         node.fontColor = SKColor.blackColor()
-        node.fontSize = 20
+        node.fontSize = fontSize
         
         let frame = node.calculateAccumulatedFrame()
         node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: 0)
