@@ -27,6 +27,8 @@ public class BarrageController {
     
     private var maximumLines: Int = 0
     
+    private var lineMapping: [Int: [BarrageNode]] = [:]
+    
     public init() {
         view = SKView()
         
@@ -62,7 +64,7 @@ public class BarrageController {
         let y = CGRectGetHeight(view.frame) - (CGRectGetHeight(frame) + lineSpacing) * CGFloat(line)
         
         node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: y)
-        node.userData = [Constants.lineKey: line]
+        addNode(node, toLine: line)
         scene.addChild(node)
         
         animate(node)
@@ -74,7 +76,30 @@ public class BarrageController {
         let speed = randomFloatBetween(lowerBound: 0.9, upperBound: 1.1)
         node.speed = CGFloat(speed)
         node.runAction(moveLeft) { [weak node] in
-            node?.removeFromParent()
+            guard let node = node else {
+                return
+            }
+            node.removeFromParent()
+            self.removeNodeFromLine(node)
+        }
+    }
+    
+    private func addNode(node: BarrageNode, toLine line: Int) {
+        if lineMapping[line] == nil {
+            lineMapping[line] = []
+        }
+        
+        node.userData = [Constants.lineKey: line]
+        lineMapping[line]?.append(node)
+    }
+    
+    private func removeNodeFromLine(node: BarrageNode) {
+        guard let line = node.userData?[Constants.lineKey] as? Int else {
+            return
+        }
+        
+        if let index = lineMapping[line]?.indexOf(node) {
+            lineMapping[line]?.removeAtIndex(index)
         }
     }
     
