@@ -55,7 +55,11 @@ public class BarrageController {
         node.fontSize = fontSize
         
         let frame = node.calculateAccumulatedFrame()
-        node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: 0)
+        
+        let line = 1
+        let y = CGRectGetHeight(view.frame) - (CGRectGetHeight(frame) + lineSpacing) * CGFloat(line)
+        
+        node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: y)
         scene.addChild(node)
         
         animate(node)
