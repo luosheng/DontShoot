@@ -50,9 +50,16 @@ public class BarrageController {
     
     private func animate(node: BarrageNode) {
         let moveLeft = SKAction.moveByX(-(CGRectGetWidth(view.frame) + CGRectGetWidth(node.frame)), y: 0, duration: 3)
+        let speed = randomFloatBetween(lowerBound: 0.9, upperBound: 1.1)
+        node.speed = CGFloat(speed)
         node.runAction(moveLeft) { [weak node] in
             node?.removeFromParent()
         }
+    }
+    
+    private func randomFloatBetween(lowerBound lowerBound: Float, upperBound: Float) -> Float {
+        let diff = upperBound - lowerBound
+        return Float(Float(arc4random()) / Float(UINT32_MAX)) * diff + lowerBound
     }
     
 }
