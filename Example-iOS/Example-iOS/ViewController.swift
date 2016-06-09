@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import DontShoot
 
 class ViewController: UIViewController {
+    
+    let barrageController = BarrageController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        barrageController.renderInView(view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        barrageController.fire("Hello, World")
+    }
 
 }
 

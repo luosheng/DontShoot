@@ -12,6 +12,7 @@ import SpriteKit
 public class BarrageController {
     
     let spriteView: SKView
+    var scene: BarrageScene!
     
     public init() {
         spriteView = SKView()
@@ -27,10 +28,29 @@ public class BarrageController {
         spriteView.frame = view.bounds
         view.addSubview(spriteView)
         
-        let scene = BarrageScene(size: spriteView.bounds.size)
+        scene = BarrageScene(size: spriteView.bounds.size)
         spriteView.presentScene(scene)
         scene.backgroundColor = SKColor.clearColor()
         scene.scaleMode = .AspectFit
+    }
+    
+    public func fire(text: String) {
+        let node = BarrageNode(text: text)
+        node.fontColor = SKColor.blackColor()
+        node.fontSize = 20
+        
+        let frame = node.calculateAccumulatedFrame()
+        node.position = CGPoint(x: CGRectGetMaxX(spriteView.frame) + CGRectGetWidth(frame) / 2 , y: 0)
+        scene.addChild(node)
+        
+        animate(node)
+    }
+    
+    private func animate(node: BarrageNode) {
+        let moveLeft = SKAction.moveByX(-(CGRectGetWidth(spriteView.frame) + CGRectGetWidth(node.frame)), y: 0, duration: 2)
+        node.runAction(moveLeft) { [weak node] in
+            node?.removeFromParent()
+        }
     }
     
 }
