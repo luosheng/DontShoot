@@ -14,6 +14,8 @@ public class BarrageController {
     struct Constants {
         // Move at the speed of 100 dp/sec
         static let speed: Float = 80
+        
+        static let lineKey = "Line"
     }
     
     let view: SKView
@@ -60,6 +62,7 @@ public class BarrageController {
         let y = CGRectGetHeight(view.frame) - (CGRectGetHeight(frame) + lineSpacing) * CGFloat(line)
         
         node.position = CGPoint(x: CGRectGetMaxX(view.frame) + CGRectGetWidth(frame) / 2 , y: y)
+        node.userData = [Constants.lineKey: line]
         scene.addChild(node)
         
         animate(node)
