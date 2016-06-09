@@ -11,6 +11,11 @@ import SpriteKit
 
 public class BarrageController {
     
+    struct Constants {
+        // Move at the speed of 100 dp/sec
+        static let speed: Float = 80
+    }
+    
     let view: SKView
     var scene: BarrageScene!
     
@@ -49,7 +54,8 @@ public class BarrageController {
     }
     
     private func animate(node: BarrageNode) {
-        let moveLeft = SKAction.moveByX(-(CGRectGetWidth(view.frame) + CGRectGetWidth(node.frame)), y: 0, duration: 3)
+        let duration = Float(CGRectGetWidth(view.frame)) / Constants.speed
+        let moveLeft = SKAction.moveByX(-(CGRectGetWidth(view.frame) + CGRectGetWidth(node.frame)), y: 0, duration: NSTimeInterval(duration))
         let speed = randomFloatBetween(lowerBound: 0.9, upperBound: 1.1)
         node.speed = CGFloat(speed)
         node.runAction(moveLeft) { [weak node] in
