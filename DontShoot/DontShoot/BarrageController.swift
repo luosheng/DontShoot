@@ -18,10 +18,12 @@ public class BarrageController {
         view = SKView()
         
         view.allowsTransparency = true
-        view.showsFPS = true
-        view.showsNodeCount = true
-        view.showsDrawCount = true
         view.backgroundColor = SKColor.clearColor()
+        #if DEBUG
+            view.showsFPS = true
+            view.showsNodeCount = true
+            view.showsDrawCount = true
+        #endif
     }
     
     public func renderInView(hostView: UIView) {
