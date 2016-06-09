@@ -25,7 +25,7 @@ public class BarrageController {
     
     public var fontSize: CGFloat = 20
     
-    public var bulletMargin: CGFloat = 50
+    public var bulletMargin: CGFloat = 20
     
     private var maximumLines: Int = 0
     
