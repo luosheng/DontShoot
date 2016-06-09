@@ -12,7 +12,23 @@
 		B3FB7E511D084827000D3846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FB7E4F1D084827000D3846 /* Main.storyboard */; };
 		B3FB7E531D084827000D3846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3FB7E521D084827000D3846 /* Assets.xcassets */; };
 		B3FB7E561D084827000D3846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FB7E541D084827000D3846 /* LaunchScreen.storyboard */; };
+		B3FB7E661D08736C000D3846 /* DontShoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB7E651D08736C000D3846 /* DontShoot.framework */; };
+		B3FB7E671D08736C000D3846 /* DontShoot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3FB7E651D08736C000D3846 /* DontShoot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B3FB7E681D08736C000D3846 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B3FB7E671D08736C000D3846 /* DontShoot.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B3FB7E481D084827000D3846 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		B3FB7E521D084827000D3846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3FB7E551D084827000D3846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3FB7E571D084827000D3846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3FB7E651D08736C000D3846 /* DontShoot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = DontShoot.framework; path = "/Users/luosheng/Library/Developer/Xcode/DerivedData/DontShoot-fqwabnzdaepctydfsanswcgrdswi/Build/Products/Debug-iphonesimulator/DontShoot.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FB7E661D08736C000D3846 /* DontShoot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +56,7 @@
 		B3FB7E3F1D084827000D3846 = {
 			isa = PBXGroup;
 			children = (
+				B3FB7E651D08736C000D3846 /* DontShoot.framework */,
 				B3FB7E4A1D084827000D3846 /* Example-iOS */,
 				B3FB7E491D084827000D3846 /* Products */,
 			);
@@ -74,6 +93,7 @@
 				B3FB7E441D084827000D3846 /* Sources */,
 				B3FB7E451D084827000D3846 /* Frameworks */,
 				B3FB7E461D084827000D3846 /* Resources */,
+				B3FB7E681D08736C000D3846 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +306,7 @@
 				B3FB7E5C1D084827000D3846 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
