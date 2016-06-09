@@ -19,7 +19,7 @@ public class BarrageController {
     
     let view: SKView
     
-    var scene: BarrageScene!
+    var scene: SKScene!
     
     public var speed: CGFloat = 80
     
@@ -49,7 +49,7 @@ public class BarrageController {
         view.frame = hostView.bounds
         hostView.addSubview(view)
         
-        scene = BarrageScene(size: view.bounds.size)
+        scene = SKScene(size: view.bounds.size)
         view.presentScene(scene)
         scene.backgroundColor = SKColor.clearColor()
         scene.scaleMode = .AspectFit
